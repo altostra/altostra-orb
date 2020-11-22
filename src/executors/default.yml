@@ -4,7 +4,7 @@ docker:
   - image: 'cimg/node:<<parameters.tag>>'
 parameters:
   tag:
-    default: lts
+    default: 12.19
     description: >
       Pick a specific circleci/node image variant:
       https://hub.docker.com/r/cimg/node/tags

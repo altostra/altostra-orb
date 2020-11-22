@@ -4,24 +4,26 @@ description: >
   Use the "push" command to package and push the current project to your repo
 usage:
   version: 2.1
+
   orbs:
     altostra-orb: altostra/altostra-orb@x.y
+
   jobs:
     build-and-push:
-      docker:
-        - image: circleci/node:12.13
+      executor: altostra-orb/default
 
       working_directory: ~/repo
       steps:
         - checkout
         - altostra/setup:
-            api-key: "$ALTO_API_KEY"
+            api-token: "$ALTO_API_KEY"
         - install:
             name: Install node modules
             command: |
               npm install
         - altostra/push:
             version: v$(node -p -e "require('./package.json').version")
+
   workflows:
     use-my-orb:
       jobs:

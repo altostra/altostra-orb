@@ -1,7 +1,7 @@
 description: >
   Install and authenticate with Altostra
 parameters:
-  api-key:
+  api-token:
     type: string
     description: Your Altostra API Token from https://app.altostra.com/settings/tokens
 steps:
@@ -9,5 +9,5 @@ steps:
       name: Install and Set
       command: |
         sudo npm i -g @altostra/cli
-        alto api-key set "<< parameters.api-key >>"
+        alto api-key set "<< parameters.api-token >>"
 
