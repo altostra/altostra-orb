@@ -4,12 +4,15 @@ parameters:
   image-version:
     type: string
     description: "The image version (i.e: 1.0.0, v2.4.1...)"
+    default: ""
   instance-name:
     type: string
     description: "The instace this version will be deployed to"
+    default: ""
   env-name:
     type: string
-    description: "The environmant this instnce is part of"
+    description: "The environmant containing this instance"
+    default: ""
 steps:
   - run:
       name: Push to repo
