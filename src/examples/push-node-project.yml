@@ -10,17 +10,18 @@ usage:
     build-and-push:
       docker:
         - image: circleci/node:12.13
+
       working_directory: ~/repo
-    steps:
-      - checkout
-      - altostra/setup:
-          api-key: "$ALTO_API_KEY"
-      - install:
-          name: Install node modules
-          command: |
-            npm install
-      - altostra/push:
-          version: v$(node -p -e "require('./package.json').version")
+      steps:
+        - checkout
+        - altostra/setup:
+            api-key: "$ALTO_API_KEY"
+        - install:
+            name: Install node modules
+            command: |
+              npm install
+        - altostra/push:
+            version: v$(node -p -e "require('./package.json').version")
   workflows:
     use-my-orb:
       jobs:
