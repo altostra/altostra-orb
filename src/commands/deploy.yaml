@@ -17,5 +17,5 @@ steps:
   - run:
       name: Push to repo
       command: |
-        alto deploy "<< parameters.api-key >>":"<< parameters.api-key >>" --env "<< parameters.api-key >>" --json
+        alto deploy "<< parameters.instance-name >>":"<< parameters.image-version >>" --env "<< parameters.env-name >>" --json
 
