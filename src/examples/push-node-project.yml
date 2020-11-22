@@ -5,7 +5,7 @@ description: >
 usage:
   version: 2.1
   orbs:
-    altostra-orb: altostra/altostra-orb@alpha
+    altostra-orb: altostra/altostra-orb@x.y
   jobs:
     build-and-push:
       docker:
