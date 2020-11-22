@@ -3,7 +3,7 @@ description:
 parameters:
   image-version:
     type: string
-    description: "The image version (i.e: 1.0.0, v2.4.1...)"
+    description: "The image version (i.e: 1.0.0, v2.4.1, ...)"
     default: ""
   instance-name:
     type: string
