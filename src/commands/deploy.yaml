@@ -3,13 +3,16 @@ description:
 parameters:
   image-version:
     type: string
+    description: "The image version (i.e: 1.0.0, v2.4.1...)"
   instance-name:
     type: string
+    description: "The instace this version will be deployed to"
   env-name:
     type: string
+    description: "The environmant this instnce is part of"
 steps:
   - run:
-      name: Deploy
+      name: Push to repo
       command: |
         alto deploy "<< parameters.api-key >>":"<< parameters.api-key >>" --env "<< parameters.api-key >>" --json
 

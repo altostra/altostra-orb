@@ -1,8 +1,9 @@
-description:
+description: >
   Install and authenticate with Altostra
 parameters:
   api-key:
     type: string
+    description: Your Altostra API Token from https://app.altostra.com/settings/tokens
 steps:
   - run:
       name: Install and Set
