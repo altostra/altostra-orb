@@ -1,0 +1,12 @@
+description:
+  Install and authenticate with Altostra
+parameters:
+  api-key:
+    type: string
+steps:
+  - run:
+      name: Install and Set
+      command: |
+        sudo npm i -g @altostra/cli
+        alto api-key set "<< parameters.api-key >>"
+

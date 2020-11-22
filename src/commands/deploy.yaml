@@ -1,0 +1,15 @@
+description:
+  Deploy a version to a specific Instance
+parameters:
+  image-version:
+    type: string
+  instance-name:
+    type: string
+  env-name:
+    type: string
+steps:
+  - run:
+      name: Deploy
+      command: |
+        alto deploy "<< parameters.api-key >>":"<< parameters.api-key >>" --env "<< parameters.api-key >>" --json
+

@@ -1,0 +1,11 @@
+description:
+  Push the current image to your repository
+parameters:
+  version:
+    type: string
+steps:
+  - run:
+      name: Push to repo
+      command: |
+        alto push "<< parameters.version >>" --json
+
