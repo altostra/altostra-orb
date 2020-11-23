@@ -27,7 +27,7 @@ jobs:
     steps:
       - checkout
       - altostra-orb/setup:
-          api-key: "$ALTO_API_KEY"
+          api-token: "$ALTO_API_KEY"
 
 
 workflows:
