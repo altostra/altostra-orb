@@ -22,11 +22,12 @@ parameters:
 
 jobs:
   # Define one or more jobs which will utilize your orb's commands and parameters to validate your changes.
-  integration-test-1:
+  integration-test-setup:
     executor: altostra-orb/default
     steps:
       - altostra-orb/setup:
           api-token: "123"
+
 
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
