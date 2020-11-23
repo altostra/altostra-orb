@@ -11,5 +11,5 @@ steps:
   - run:
       name: "Deploy to << parameters.instance-name >> on  << parameters.env-name >>"
       command: |
-        alto deploy "<< parameters.instance-name >>" --env "<< parameters.env-name >>" --json
+        alto deploy "<< parameters.instance-name >>" --env "<< parameters.env-name >>" --push --json
 
