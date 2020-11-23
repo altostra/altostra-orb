@@ -3,9 +3,14 @@ description:
 parameters:
   version:
     type: string
+    description: "The version string (i.e: v1.2.3, 4-rc, ...)"
+  force:
+    type: boolean
+    description: If true, will override the existing version in the repo (if exists)
+    default: false
 steps:
   - run:
       name: Push to repo
       command: |
-        alto push "<< parameters.version >>" --json
+        alto push << parameters.version >> <<# parameters.force >> -f <</ parameters.force >> --json
 

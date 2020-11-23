@@ -8,7 +8,6 @@ parameters:
   instance-name:
     type: string
     description: "The instace this version will be deployed to"
-    default: ""
   env-name:
     type: string
     description: "The environmant containing this instance"

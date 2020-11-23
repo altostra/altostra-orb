@@ -32,6 +32,8 @@ jobs:
           api-token: "$ALTO_API_KEY"
       - altostra-orb/push:
           version: v$(node -p -e "require('./package.json').version")
+      - altostra-orb/deploy:
+
 
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
