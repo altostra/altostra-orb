@@ -15,14 +15,15 @@ usage:
       working_directory: ~/repo
       steps:
         - checkout
-        - altostra/setup:
+        - altostra-orb/setup:
             api-token: "$ALTO_API_KEY"
         - install:
             name: Install node modules
             command: |
               npm install
-        - altostra/push:
-            version: v$(node -p -e "require('./package.json').version")
+        - altostra-orb/deploy:
+            instance-name: "circleci"
+            env-name: "Daylong"
 
   workflows:
     use-my-orb:

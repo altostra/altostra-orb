@@ -1,26 +1,86 @@
-# Orb Source
+<p align="center">
+  <img src="https://altostra.com/images/blog/circle-ci-cd-altostra.png" alt="CircleCI + Altostra" width="390">
+</p>
+<br/>
 
-Orbs are shipped as individual `orb.yml` files, however, to make development easier, it is possible to author an orb in _unpacked_ form, which can be _packed_ with the CircleCI CLI and published.
+<!-- <p align="center">
+  <a href="https://altostra.com/blog/circle-ci-cd-altostra"><img alt="Learn More" src="https://secrethub.io/img/buttons/github/learn-more.png?v2" height="28" /></a>
+  <a href="https://secrethub.io/docs/guides/circleci/"><img alt="View Docs" src="https://secrethub.io/img/buttons/github/view-docs.png?v2" height="28" /></a>
+</p>
+<br/>
 
-The default `.circleci/config.yml` file contains the configuration code needed to automatically pack, test, and deploy and changes made to the contents of the orb source in this directory.
+<h1>
+  CircleCI Orb <img src="https://secrethub.io/img/integrations/circleci/partner-badge.png" alt="Partner badge" width="60" />
+</h1> -->
 
-## @orb.yml
+[![Altostra](https://circleci.com/gh/altostra/altostra-orb.svg?style=svg)](https://app.circleci.com/pipelines/github/altostra/altostra-orb)
 
-This is the entry point for our orb "tree", which becomes our `orb.yml` file later.
 
-Within the `@orb.yml` we generally specify 4 configuration keys
+Easily integrate your Altostra deployoment with your CircleCI
 
-**Keys**
+## Usage
 
-1. **version**
-    Specify version 2.1 for orb-compatible configuration `version: 2.1`
-2. **description**
-    Give your orb a description. Shown within the CLI and orb registry
-3. **display**
-    Specify the `home_url` referencing documentation or product URL, and `source_url` linking to the orb's source repository.
-4. **orbs**
-    (optional) Some orbs may depend on other orbs. Import them here.
+To deploy a project directly to one of your instances, you can run:
 
-## See:
- - [Orb Author Intro](https://circleci.com/docs/2.0/orb-author-intro/#section=configuration)
- - [Reusable Configuration](https://circleci.com/docs/2.0/reusing-config)
+```yaml
+version: 2.1
+orbs:
+  altostra-orb: altostra/altostra-orb@x.y #enter latest version
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:12.13
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      # setup the Altostra CLI with your api-token
+      - altostra-orb/setup:
+          api-token: "$ALTO_API_KEY"
+
+      - run:
+          name: NPM install
+          command: npm install
+
+      - altostra-orb/deploy:
+          instance-name: "myInstance"
+          env-name: "Production"
+```
+
+Or, you can just push your version to your repository:
+
+```yaml
+version: 2.1
+orbs:
+  altostra-orb: altostra/altostra-orb@x.y #enter latest version
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:12.13
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      # setup the Altostra CLI with your api-token
+      - altostra-orb/setup:
+          api-token: "$ALTO_API_KEY" # Set this in your project Environment variables
+
+      - run:
+          name: NPM install
+          command: npm install
+
+      - altostra-orb/push:
+          version: "v1.2.3-myVer"
+```
+
+and then deploy it:
+```yaml
+      - altostra-orb/deploy-version:
+          image-version: "v1.2.3-myVer"
+          instance-name: "myInstance"
+          env-name: "Production"
+```
