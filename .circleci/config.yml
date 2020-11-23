@@ -24,11 +24,14 @@ jobs:
   # Define one or more jobs which will utilize your orb's commands and parameters to validate your changes.
   integration-test-setup:
     executor: altostra-orb/default
+    working_directory: ~/altostra-orb/resources/test_project
     steps:
-      - checkout
+      - checkout:
+          path: ~/altostra-orb
       - altostra-orb/setup:
           api-token: "$ALTO_API_KEY"
-
+      - altostra-orb/push:
+          version: v$(node -p -e "require('./package.json').version")
 
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
