@@ -1,20 +1,15 @@
 description:
-  Deploy a version to a specific Instance
+  Push and deploy the current version
 parameters:
-  image-version:
-    type: string
-    description: "The image version (i.e: 1.0.0, v2.4.1, ...)"
-    default: ""
   instance-name:
     type: string
     description: "The instace this version will be deployed to"
   env-name:
     type: string
     description: "The environmant containing this instance"
-    default: ""
 steps:
   - run:
-      name: Push to repo
+      name: "Deploy to << parameters.instance-name >> on  << parameters.env-name >>"
       command: |
-        alto deploy "<< parameters.instance-name >>":"<< parameters.image-version >>" --env "<< parameters.env-name >>" --json
+        alto deploy "<< parameters.instance-name >>" --env "<< parameters.env-name >>" --json
 
