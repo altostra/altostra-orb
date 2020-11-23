@@ -1,0 +1,36 @@
+{
+  "id": "ckhudy36t000009jn59mw1wvf",
+  "name": ".",
+  "description": "An empty project template",
+  "created": "2020-11-23T10:05:19.961Z",
+  "blueprints": [
+    {
+      "connections": {},
+      "id": "ckhudwjbq0000ltqs16c58m0y",
+			"metadata": {
+				"designer": {
+					"resourcePositions": {
+						"SampleTest01": {
+							"x": 189,
+							"y": 265,
+							"z": 0
+						}
+					}
+				}
+			},
+			"name": "CircleCI Integration",
+			"resources": {
+				"SampleTest01": {
+					"type": "resource.notification-topic",
+					"name": "circle-ci-integration-test",
+					"displayName": "sample-test",
+					"id": "SampleTest01"
+				}
+			},
+			"unsafe": false,
+			"version": "2019-10-24"
+
+    }
+  ],
+  "type": "altostra"
+}

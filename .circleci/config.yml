@@ -25,8 +25,9 @@ jobs:
   integration-test-setup:
     executor: altostra-orb/default
     steps:
+      - checkout
       - altostra-orb/setup:
-          api-token: "123"
+          api-token: "$ALTO_API_KEY"
 
 
 workflows:
@@ -66,7 +67,7 @@ workflows:
     when: << pipeline.parameters.run-integration-tests >>
     jobs:
       # Run any integration tests defined within the `jobs` key.
-      - integration-test-1
+      - integration-test-setup
       # Publish a semver version of the orb. relies on
       # the commit subject containing the text "[semver:patch|minor|major|skip]"
       # as that will determine whether a patch, minor or major
