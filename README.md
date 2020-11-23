@@ -3,18 +3,7 @@
 </p>
 <br/>
 
-<!-- <p align="center">
-  <a href="https://altostra.com/blog/circle-ci-cd-altostra"><img alt="Learn More" src="https://secrethub.io/img/buttons/github/learn-more.png?v2" height="28" /></a>
-  <a href="https://secrethub.io/docs/guides/circleci/"><img alt="View Docs" src="https://secrethub.io/img/buttons/github/view-docs.png?v2" height="28" /></a>
-</p>
-<br/>
-
-<h1>
-  CircleCI Orb <img src="https://secrethub.io/img/integrations/circleci/partner-badge.png" alt="Partner badge" width="60" />
-</h1> -->
-
 [![Altostra](https://circleci.com/gh/altostra/altostra-orb.svg?style=svg)](https://app.circleci.com/pipelines/github/altostra/altostra-orb)
-
 
 Easily integrate your Altostra deployoment with your CircleCI
 
@@ -38,7 +27,7 @@ jobs:
       - checkout
       # setup the Altostra CLI with your api-token
       - altostra-orb/setup:
-          api-token: "$ALTO_API_KEY"
+          api-token: "$ALTO_API_KEY" # Set this in your project Environment variables
 
       - run:
           name: NPM install
