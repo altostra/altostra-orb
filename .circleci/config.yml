@@ -30,9 +30,6 @@ jobs:
           path: ~/altostra-orb
       - altostra-orb/setup:
           api-token: "$ALTO_API_KEY"
-      - run:
-          command: |
-            alto whoami
 
   integration-test-deploy:
     executor: altostra-orb/default
@@ -87,12 +84,12 @@ workflows:
           requires:
             - orb-tools/publish-dev
 
-  test-integration:
-    when: << pipeline.parameters.run-integration-tests >>
-    jobs:
-      - integration-test-setup
-      - integration-test-deploy
-      - integration-test-failed
+  # test-integration:
+  #   when: << pipeline.parameters.run-integration-tests >>
+  #   jobs:
+  #     - integration-test-setup
+  #     - integration-test-deploy
+  #     - integration-test-failed
 
   # This `integration-test_deploy` workflow will only run
   # when the run-integration-tests pipeline parameter is set to true.
