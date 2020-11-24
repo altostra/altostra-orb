@@ -4,8 +4,8 @@
 <br/>
 
 <p align="center">
-  <a href="https://altostra.com/blog/circle-ci-cd-altostra"><img alt="Learn More" src="https://media.altostra.com/learn-more.svg" height="28" /></a>
-  <a href="https://docs.altostra.com/"><img alt="View Docs" src="https://media.altostra.com/view-docs.svg" height="28" /></a>
+  <a href="https://altostra.com/blog/circle-ci-cd-altostra"><img alt="Learn More" src="https://media.altostra.com/buttons/learn-more.png" height="28" /></a>
+  <a href="https://docs.altostra.com/"><img alt="View Docs" src="https://media.altostra.com/buttons/view-docs.png" height="28" /></a>
 </p>
 <br/>
 
