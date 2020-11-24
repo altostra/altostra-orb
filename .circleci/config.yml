@@ -30,6 +30,8 @@ jobs:
           path: ~/altostra-orb
       - altostra-orb/setup:
           api-token: "$ALTO_API_KEY"
+      - store_test_results:
+          path: integration-test-setup
 
   integration-test-deploy:
     executor: altostra-orb/default
@@ -42,6 +44,9 @@ jobs:
       - altostra-orb/deploy:
           instance-name: "circleci"
           env-name: "Daylong"
+      - store_test_results:
+          path: integration-test-deploy
+
 
   integration-test-failed:
     executor: altostra-orb/default
@@ -54,6 +59,8 @@ jobs:
       - altostra-orb/deploy:
           instance-name: "circleci"
           env-name: "NonExistingEnv"
+      - store_test_results:
+          path: integration-test-failed
 
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
