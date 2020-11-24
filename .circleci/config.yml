@@ -30,8 +30,9 @@ jobs:
           path: ~/altostra-orb
       - altostra-orb/setup:
           api-token: "$ALTO_API_KEY"
-      - command: |
-          alto whoami
+      - run:
+          command: |
+            alto whoami
 
   integration-test-deploy:
     executor: altostra-orb/default
