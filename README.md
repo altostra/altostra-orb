@@ -76,7 +76,7 @@ jobs:
 and then deploy it:
 ```yaml
       - altostra-orb/deploy-version:
-          image-version: "v1.2.3-myVer"
+          image-name: "v1.2.3-myVer"
           instance-name: "myInstance"
           env-name: "Production"
 ```

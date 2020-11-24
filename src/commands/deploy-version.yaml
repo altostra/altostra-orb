@@ -1,7 +1,7 @@
 description:
   Deploy a version to a specific Instance
 parameters:
-  image-version:
+  image-name:
     type: string
     description: "The image version (i.e: 1.0.0, v2.4.1, ...)"
   instance-name:
@@ -12,7 +12,7 @@ parameters:
     description: "The environmant containing this instance"
 steps:
   - run:
-      name: Deploying version << parameters.image-version >> to << parameters.instance-name >> at "<< parameters.env-name >>"
+      name: Deploying version << parameters.image-name >> to << parameters.instance-name >> at "<< parameters.env-name >>"
       command: |
-        alto deploy "<< parameters.instance-name >>":"<< parameters.image-version >>" --env "<< parameters.env-name >>" --json
+        alto deploy "<< parameters.instance-name >>":"<< parameters.image-name >>" --env "<< parameters.env-name >>" --json
 
