@@ -1,5 +1,6 @@
 description:
   Push and deploy the current version
+
 parameters:
   instance-name:
     type: string
@@ -11,6 +12,7 @@ parameters:
     type: string
     description: "The environmant containing this instance"
     default: ""
+
 steps:
   - when:
       condition: << parameters.image-name >>
