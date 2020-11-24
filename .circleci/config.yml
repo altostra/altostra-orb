@@ -31,32 +31,32 @@ jobs:
       - altostra-orb/setup:
           api-token: "$ALTO_API_KEY"
 
-  integration-test-deploy_no_name:
-    executor: altostra-orb/default
-    working_directory: ~/altostra-orb/resources/test_project
-    steps:
-      - checkout:
-          path: ~/altostra-orb
-      - altostra-orb/setup:
-          api-token: "$ALTO_API_KEY"
-      - altostra-orb/deploy:
-          instance-name: "circleci"
-          env-name: "Daylong"
+  # integration-test-deploy_no_name:
+  #   executor: altostra-orb/default
+  #   working_directory: ~/altostra-orb/resources/test_project
+  #   steps:
+  #     - checkout:
+  #         path: ~/altostra-orb
+  #     - altostra-orb/setup:
+  #         api-token: "$ALTO_API_KEY"
+  #     - altostra-orb/deploy:
+  #         instance-name: "circleci"
+  #         env-name: "Daylong"
 
-  integration-test-deploy_with_name:
-    executor: altostra-orb/default
-    working_directory: ~/altostra-orb/resources/test_project
-    environment:
-      VERSION_NAME: openssl rand -base64 12
-    steps:
-      - checkout:
-          path: ~/altostra-orb
-      - altostra-orb/setup:
-          api-token: "$ALTO_API_KEY"
-      - altostra-orb/deploy:
-          instance-name: "circleci1"
-          env-name: "Daylong"
-          image-name: "$VERSION_NAME"
+  # integration-test-deploy_with_name:
+  #   executor: altostra-orb/default
+  #   working_directory: ~/altostra-orb/resources/test_project
+  #   environment:
+  #     VERSION_NAME: openssl rand -base64 12
+  #   steps:
+  #     - checkout:
+  #         path: ~/altostra-orb
+  #     - altostra-orb/setup:
+  #         api-token: "$ALTO_API_KEY"
+  #     - altostra-orb/deploy:
+  #         instance-name: "circleci1"
+  #         env-name: "Daylong"
+  #         image-name: "$VERSION_NAME"
 
   integration-test-push_deploy:
     executor: altostra-orb/default
@@ -105,13 +105,6 @@ workflows:
           requires:
             - orb-tools/publish-dev
 
-  # test-integration:
-  #   when: << pipeline.parameters.run-integration-tests >>
-  #   jobs:
-  #     - integration-test-setup
-  #     - integration-test-deploy
-  #     - integration-test-failed
-
   # This `integration-test_deploy` workflow will only run
   # when the run-integration-tests pipeline parameter is set to true.
   # It is meant to be triggered by the "trigger-integration-tests-workflow"
@@ -121,8 +114,8 @@ workflows:
     jobs:
       # Run any integration tests defined within the `jobs` key.
       - integration-test-setup
-      - integration-test-deploy_no_name
-      - integration-test-deploy_with_name
+      # - integration-test-deploy_no_name
+      # - integration-test-deploy_with_name
       - integration-test-push_deploy
       # Publish a semver version of the orb. relies on
       # the commit subject containing the text "[semver:patch|minor|major|skip]"
