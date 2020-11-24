@@ -18,14 +18,14 @@ steps:
       condition: << parameters.image-name >>
       steps:
         - run:
-          name: "Deploy image << parameters.image-name >> to << parameters.instance-name >> on  << parameters.env-name >>"
-          command: |
-            alto deploy "<< parameters.instance-name >>":"<< parameters.image-name >>" --env "<< parameters.env-name >>" --push --json
+            name: "Deploy image << parameters.image-name >> to << parameters.instance-name >> on  << parameters.env-name >>"
+            command: |
+              alto deploy "<< parameters.instance-name >>":"<< parameters.image-name >>" --env "<< parameters.env-name >>" --push --json
   - unless:
       condition: << parameters.image-name >>
       steps:
         - run:
-          name: "Deploy to << parameters.instance-name >> on  << parameters.env-name >>"
-          command: |
-            alto deploy "<< parameters.instance-name >>" --env "<< parameters.env-name >>" --push --json
+            name: "Deploy to << parameters.instance-name >> on  << parameters.env-name >>"
+            command: |
+              alto deploy "<< parameters.instance-name >>" --env "<< parameters.env-name >>" --push --json
 
