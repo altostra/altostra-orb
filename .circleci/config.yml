@@ -43,19 +43,6 @@ jobs:
           instance-name: "circleci"
           env-name: "Daylong"
 
-  integration-test-failed:
-    executor: altostra-orb/default
-    working_directory: ~/altostra-orb/resources/test_project
-    steps:
-      - checkout:
-          path: ~/altostra-orb
-      - altostra-orb/setup:
-          api-token: "$ALTO_API_KEY"
-      - altostra-orb/deploy:
-          instance-name: "circleci"
-          env-name: "NonExistingEnv"
-
-
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
   # This workflow will run on every commit
@@ -102,7 +89,6 @@ workflows:
       # Run any integration tests defined within the `jobs` key.
       - integration-test-setup
       - integration-test-deploy
-      - integration-test-failed
       # Publish a semver version of the orb. relies on
       # the commit subject containing the text "[semver:patch|minor|major|skip]"
       # as that will determine whether a patch, minor or major
