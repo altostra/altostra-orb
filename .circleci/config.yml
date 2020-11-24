@@ -86,6 +86,13 @@ workflows:
           requires:
             - orb-tools/publish-dev
 
+  test-integration:
+    when: << pipeline.parameters.run-integration-tests >>
+    jobs:
+      - integration-test-setup
+      - integration-test-deploy
+      - integration-test-failed
+
   # This `integration-test_deploy` workflow will only run
   # when the run-integration-tests pipeline parameter is set to true.
   # It is meant to be triggered by the "trigger-integration-tests-workflow"
@@ -108,7 +115,7 @@ workflows:
           fail-if-semver-not-indicated: true
           publish-version-tag: false
           requires:
-            - integration-test-setup
+            - integration-test-deploy
           filters:
             branches:
               only:
