@@ -1,7 +1,14 @@
 <p align="center">
-  <img src="https://altostra.com/images/blog/circle-ci-cd-altostra.png" alt="CircleCI + Altostra" width="390">
+  <img src="http://media.altostra.com/altostra-circleci-orb.png" alt="CircleCI + Altostra" width="390">
 </p>
 <br/>
+
+<p align="center">
+  <a href="https://altostra.com/blog/circle-ci-cd-altostra"><img alt="Learn More" src="https://media.altostra.com/learn-more.svg" height="28" /></a>
+  <a href="https://docs.altostra.com/"><img alt="View Docs" src="https://media.altostra.com/view-docs.svg" height="28" /></a>
+</p>
+<br/>
+
 
 [![Altostra](https://circleci.com/gh/altostra/altostra-orb.svg?style=svg)](https://app.circleci.com/pipelines/github/altostra/altostra-orb)
 
