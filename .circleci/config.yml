@@ -131,7 +131,10 @@ workflows:
           fail-if-semver-not-indicated: true
           publish-version-tag: false
           requires:
-            - integration-test-deploy
+            - integration-test-setup
+            - integration-test-deploy_no_name
+            - integration-test-deploy_with_name
+            - integration-test-push_deploy
           filters:
             branches:
               only:
