@@ -113,10 +113,11 @@ workflows:
     when: << pipeline.parameters.run-integration-tests >>
     jobs:
       # Run any integration tests defined within the `jobs` key.
-      - integration-test-setup
+      # - integration-test-setup
       # - integration-test-deploy_no_name
       # - integration-test-deploy_with_name
-      - integration-test-push_deploy
+      # - integration-test-push_deploy
+
       # Publish a semver version of the orb. relies on
       # the commit subject containing the text "[semver:patch|minor|major|skip]"
       # as that will determine whether a patch, minor or major
