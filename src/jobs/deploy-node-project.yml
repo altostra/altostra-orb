@@ -1,0 +1,59 @@
+description: >
+  Build, test and deploy a basic NodeJS project
+
+executor: default
+
+parameters:
+
+  instance-name:
+    type: string
+    description: "The instance this version will be deployed to"
+
+  env-name:
+    type: string
+    description: "The environment containing this instance"
+
+  image-name:
+    type: string
+    description: "Optional. Image name to use when pushing this version"
+    default: ""
+
+steps:
+
+  - checkout
+
+  - restore_cache:
+      keys:
+      - v1-dependencies-
+      # fallback to using the latest cache if no exact match is found
+      - v1-dependencies-
+
+  - setup:
+      api-token: "$ALTO_API_KEY"
+
+  - run:
+      name: Install dependecies
+      command: |
+        npm ci
+        npm run build
+
+  - save_cache:
+      paths:
+        - node_modules
+      key: v1-dependencies-
+
+  - run:
+      name: Run Tests
+      command: |
+        npm run test
+
+  - run:
+    name: Clean for Production
+    command: |
+      npm ci --production
+
+  - deploy:
+      instance-name: << parameters.instance-name >>
+      env-name: << parameters.env-name >>
+      image-name: << parameters.image-name >>
+

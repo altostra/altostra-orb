@@ -4,13 +4,13 @@ description:
 parameters:
   instance-name:
     type: string
-    description: "The instace this version will be deployed to"
+    description: "The instance this version will be deployed to"
   env-name:
     type: string
-    description: "The environmant containing this instance"
+    description: "The environment containing this instance"
   image-name:
     type: string
-    description: "The environmant containing this instance"
+    description: "Optional. Image name to use when pushing this version"
     default: ""
 
 steps:
