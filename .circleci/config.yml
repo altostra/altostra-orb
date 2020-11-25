@@ -49,6 +49,8 @@ jobs:
     environment:
       VERSION_NAME: openssl rand -base64 12
     steps:
+      - run:
+          command: echo "$VERSION_NAME"
       - checkout:
           path: ~/altostra-orb
       - altostra-orb/setup:
@@ -64,6 +66,8 @@ jobs:
     environment:
       VERSION_NAME: "$(openssl rand -base64 12)"
     steps:
+      - run:
+          command: echo "$VERSION_NAME"
       - checkout:
           path: ~/altostra-orb
       - altostra-orb/setup:
