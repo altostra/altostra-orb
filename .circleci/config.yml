@@ -24,18 +24,15 @@ jobs:
   # Define one or more jobs which will utilize your orb's commands and parameters to validate your changes.
   integration-test-setup:
     executor: altostra-orb/default
-    working_directory: ~/altostra-orb/resources/test_project
     steps:
-      - checkout:
-          path: ~/altostra-orb
       - altostra-orb/setup
 
   integration-test-deploy_no_name:
     executor: altostra-orb/default
-    working_directory: ~/altostra-orb/resources/test_project
+    working_directory: ~/altostra-orb_1/resources/test_project
     steps:
       - checkout:
-          path: ~/altostra-orb
+          path: ~/altostra-orb_1
       - altostra-orb/setup
       - altostra-orb/deploy:
           instance-name: "circleci"
@@ -43,12 +40,10 @@ jobs:
 
   integration-test-deploy_with_name:
     executor: altostra-orb/default
-    working_directory: ~/altostra-orb/resources/test_project
+    working_directory: ~/altostra-orb_2/resources/test_project
     steps:
-      - run:
-          command: echo "$VERSION_NAME"
       - checkout:
-          path: ~/altostra-orb
+          path: ~/altostra-orb_2
       - altostra-orb/setup
       - altostra-orb/deploy:
           instance-name: "circleci1"
@@ -57,12 +52,10 @@ jobs:
 
   integration-test-push_deploy:
     executor: altostra-orb/default
-    working_directory: ~/altostra-orb/resources/test_project
+    working_directory: ~/altostra-orb_3/resources/test_project
     steps:
-      - run:
-          command: echo "$VERSION_NAME"
       - checkout:
-          path: ~/altostra-orb
+          path: ~/altostra-orb_3
       - altostra-orb/setup
       - altostra-orb/push:
           version: "$CIRCLE_BUILD_NUM"
