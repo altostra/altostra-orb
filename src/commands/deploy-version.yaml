@@ -1,23 +1,23 @@
 description:
-  Deploy a version to a specific Instance
+  Deploy the current project from an existing image
 
 parameters:
 
   image-name:
     type: string
-    description: "The image version (i.e: 1.0.0, v2.4.1, ...)"
+    description: "The image name (i.e: 1.0.0, v2.4.1, ...)"
 
   instance-name:
     type: string
-    description: "The instance this version will be deployed to"
+    description: "The instance name to deploy"
 
   env-name:
     type: string
-    description: "The environment containing this instance"
+    description: "The environment to which to deploy"
 
 steps:
   - run:
-      name: Deploying version << parameters.image-name >> to << parameters.instance-name >> at "<< parameters.env-name >>"
+      name: Deploying version << parameters.image-name >> as instance << parameters.instance-name >> to environment "<< parameters.env-name >>"
       command: |
         alto deploy "<< parameters.instance-name >>":"<< parameters.image-name >>" --env "<< parameters.env-name >>" --json
 

@@ -1,16 +1,16 @@
 description:
-  Push and deploy the current version
+  Push and deploy the current project
 
 parameters:
   instance-name:
     type: string
-    description: "The instance this version will be deployed to"
+    description: "The instance name to deploy"
   env-name:
     type: string
-    description: "The environment containing this instance"
+    description: "The environment to which to deploy"
   image-name:
     type: string
-    description: "Optional. Image name to use when pushing this version"
+    description: "Optional. The image name (i.e: 1.0.0, v2.4.1, alpha, dev, test, ...)"
     default: ""
 
 steps:
