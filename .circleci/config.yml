@@ -54,7 +54,7 @@ jobs:
           path: ~/altostra-orb_3
       - altostra-orb/setup
       - altostra-orb/push:
-          version: "$CIRCLE_BUILD_NUM"
+          image-name: "$CIRCLE_BUILD_NUM"
       - altostra-orb/deploy-version:
           instance-name: "circleci2"
           env-name: "Daylong"
@@ -97,7 +97,7 @@ workflows:
       - integration-test-setup
       - integration-test-deploy_no_name
       - integration-test-deploy_with_name
-      - integration-test-push_deploy
+#      - integration-test-push_deploy
 
       # Publish a semver version of the orb. relies on
       # the commit subject containing the text "[semver:patch|minor|major|skip]"

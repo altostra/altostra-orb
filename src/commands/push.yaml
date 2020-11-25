@@ -3,7 +3,7 @@ description:
 
 parameters:
 
-  version:
+  image-name:
     type: string
     description: "The image name (i.e: 1.0.0, v2.4.1, alpha, dev, test, ...)"
 
@@ -11,5 +11,5 @@ steps:
   - run:
       name: Push the image
       command: |
-        alto push << parameters.version >> --json
+        alto push << parameters.image-name >> --json
 
