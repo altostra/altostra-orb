@@ -28,8 +28,7 @@ steps:
       # fallback to using the latest cache if no exact match is found
       - v1-dependencies-
 
-  - setup:
-      api-token: "$ALTO_API_KEY"
+  - setup
 
   - run:
       name: Install dependecies
@@ -48,9 +47,9 @@ steps:
         npm run test
 
   - run:
-    name: Clean for Production
-    command: |
-      npm ci --production
+      name: Clean for Production
+      command: |
+        npm ci --production
 
   - deploy:
       instance-name: << parameters.instance-name >>
