@@ -1,7 +1,7 @@
 description: >
-  Pushing a standard node project to your repo.
+  Deploying a standard node project to your repo.
   Use the "setup" command to install and authenticate with your account.
-  Use the "push" command to package and push the current project to your repo
+  Use the "deploy" command to package and deploy the current project to your repo
 usage:
   version: 2.1
 

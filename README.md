@@ -12,11 +12,11 @@
 
 [![Altostra](https://circleci.com/gh/altostra/altostra-orb.svg?style=svg)](https://app.circleci.com/pipelines/github/altostra/altostra-orb)
 
-Easily integrate your Altostra deployoment with your CircleCI
+Easily integrate your Altostra deployment with your CircleCI
 
-## Usage
+## Using
 
-To deploy a project directly to one of your instances, you can run:
+To deploy a project, use `altostra-orb` and provide the instance name and the environment:
 
 ```yaml
 version: 2.1
@@ -45,7 +45,7 @@ jobs:
           env-name: "Production"
 ```
 
-Or, you can just push your version to your repository:
+Or, you can push an image of the project:
 
 ```yaml
 version: 2.1
@@ -74,6 +74,7 @@ jobs:
 ```
 
 and then deploy it:
+
 ```yaml
       - altostra-orb/deploy-version:
           image-name: "v1.2.3-myVer"
