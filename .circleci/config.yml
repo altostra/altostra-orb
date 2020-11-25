@@ -28,8 +28,7 @@ jobs:
     steps:
       - checkout:
           path: ~/altostra-orb
-      - altostra-orb/setup:
-          api-token: "$ALTO_API_KEY"
+      - altostra-orb/setup
 
   integration-test-deploy_no_name:
     executor: altostra-orb/default
@@ -37,8 +36,7 @@ jobs:
     steps:
       - checkout:
           path: ~/altostra-orb
-      - altostra-orb/setup:
-          api-token: "$ALTO_API_KEY"
+      - altostra-orb/setup
       - altostra-orb/deploy:
           instance-name: "circleci"
           env-name: "Daylong"
@@ -53,8 +51,7 @@ jobs:
           command: echo "$VERSION_NAME"
       - checkout:
           path: ~/altostra-orb
-      - altostra-orb/setup:
-          api-token: "$ALTO_API_KEY"
+      - altostra-orb/setup
       - altostra-orb/deploy:
           instance-name: "circleci1"
           env-name: "Daylong"
@@ -70,8 +67,7 @@ jobs:
           command: echo "$VERSION_NAME"
       - checkout:
           path: ~/altostra-orb
-      - altostra-orb/setup:
-          api-token: "$ALTO_API_KEY"
+      - altostra-orb/setup
       - altostra-orb/push:
           version: "$VERSION_NAME"
       - altostra-orb/deploy-version:
