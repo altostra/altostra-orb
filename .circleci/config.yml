@@ -62,7 +62,7 @@ jobs:
     executor: altostra-orb/default
     working_directory: ~/altostra-orb/resources/test_project
     environment:
-      VERSION_NAME: openssl rand -base64 12
+      VERSION_NAME: "$(openssl rand -base64 12)"
     steps:
       - checkout:
           path: ~/altostra-orb
