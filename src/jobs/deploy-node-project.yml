@@ -1,5 +1,7 @@
-description: >
-  Build, test and deploy a basic NodeJS project
+description: |
+  Build, test and deploy a basic NodeJS project.
+  This job runs `npm install`, `npm run build` and `npm run test`,
+  and on success, runs `npm ci --production` and deploys the current project to the requested instance.
 
 executor: default
 

@@ -12,10 +12,16 @@
 
 [![Altostra](https://circleci.com/gh/altostra/altostra-orb.svg?style=svg)](https://app.circleci.com/pipelines/github/altostra/altostra-orb)
 
-Easily integrate your Altostra deployment with your CircleCI
+Easily integrate your Altostra deployments with your CircleCI
 
 ## Using
 
+### Setting up
+
+First, add an env variable named ALTO_API_KEY to your project environment and set it's value to your Altostra API Token.
+The `altostra-orb/setup` step will use this variable to set up your connection to Altostra.
+
+### Pushing and Deploying 
 To deploy a project, use `altostra-orb` and provide the instance name and the environment:
 
 ```yaml

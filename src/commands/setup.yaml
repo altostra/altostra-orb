@@ -5,11 +5,11 @@ parameters:
   api-token:
     type: env_var_name
     default: ALTO_API_KEY
-    description: Your Altostra API Token from https://app.altostra.com/settings/tokens
+    description: Your Altostra API token from https://app.altostra.com/settings/tokens
 
 steps:
   - run:
-      name: Install and Set
+      name: Install Altostra CLI and set the API token
       command: |
         sudo npm i -g @altostra/cli
         alto api-key set ${<< parameters.api-token >>}
