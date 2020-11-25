@@ -1,9 +1,12 @@
 description:
   Push the current image to your repository
+
 parameters:
+
   version:
     type: string
     description: "The version string (i.e: v1.2.3, 4-rc, ...)"
+
 steps:
   - run:
       name: Push to repo
