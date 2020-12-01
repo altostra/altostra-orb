@@ -19,12 +19,14 @@ parameters:
 
 jobs:
   integration-test-setup:
-    docker: cimg/node:12.19
+    docker:
+      - image: cimg/node:12.19
     steps:
       - altostra-orb/setup
 
   integration-test-deploy_no_name:
-    docker: cimg/node:12.19
+    docker:
+      - image: cimg/node:12.19
     working_directory: ~/altostra-orb_1/resources/test_project
     steps:
       - checkout:
@@ -35,7 +37,8 @@ jobs:
           env-name: "Daylong"
 
   integration-test-deploy_with_name:
-    docker: cimg/node:12.19
+    docker:
+      - image: cimg/node:12.19
     working_directory: ~/altostra-orb_2/resources/test_project
     steps:
       - checkout:
@@ -47,7 +50,8 @@ jobs:
           image-name: "$CIRCLE_BUILD_NUM"
 
   integration-test-push_deploy:
-    docker: cimg/node:12.19
+    docker:
+      - image: cimg/node:12.19
     working_directory: ~/altostra-orb_3/resources/test_project
     steps:
       - checkout:
