@@ -39,9 +39,7 @@ jobs:
     steps:
       - checkout
       # setup the Altostra CLI with your api-token
-      - altostra-orb/setup:
-          api-token: "$ALTO_API_KEY" # Set this in your project Environment variables
-
+      - altostra-orb/setup
       - run:
           name: NPM install
           command: npm install
@@ -68,9 +66,7 @@ jobs:
     steps:
       - checkout
       # setup the Altostra CLI with your api-token
-      - altostra-orb/setup:
-          api-token: "$ALTO_API_KEY" # Set this in your project Environment variables
-
+      - altostra-orb/setup
       - run:
           name: NPM install
           command: npm install

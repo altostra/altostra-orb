@@ -1,7 +1,7 @@
 version: 2.1
 
 description: >
-  Altosra CI/CD integration with CircleCI
+  Integrate your Altostra project deployment with CircleCI
 
 # This information will be displayed in the orb registry and is not mandatory.
 display:
