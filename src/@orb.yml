@@ -4,7 +4,7 @@ description: >
   Integrate Altostra projects into your CircleCI workflows.
   Use Altostra to accelerate serverless applications development in a no-code environment.
   To use this orb, sign up for a free account at https://altostra.com.
-  Learn more: https://docs.altostra.com/integrations/cicd/circleci
+  Learn more: https://docs.altostra.com/integrations/ci-cd/circleci-integration.html
 
 # This information will be displayed in the orb registry and is not mandatory.
 display:
