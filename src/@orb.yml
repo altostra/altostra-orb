@@ -1,7 +1,10 @@
 version: 2.1
 
 description: >
-  Integrate your Altostra project deployment with CircleCI
+  Integrate Altostra into your CircleCI workflows.
+  Use Altostra to accelerate serverless applications development in a no-code environment.
+  To use this orb, sign up for a free account at https://altostra.com.
+  Learn more: https://docs.altostra.com/integrations/circleci
 
 # This information will be displayed in the orb registry and is not mandatory.
 display:
