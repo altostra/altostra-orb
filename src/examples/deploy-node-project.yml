@@ -1,0 +1,32 @@
+description: >
+  Deploying a standard node project to your repo.
+  Use the "setup" command to install and authenticate with your account.
+  Use the "deploy" command to package and deploy the current project to your repo
+usage:
+  version: 2.1
+
+  orbs:
+    altostra-orb: altostra/altostra-orb@x.y
+
+  jobs:
+    build-and-push:
+
+      docker:
+        - image: cimg/node:12.19
+
+      working_directory: ~/repo
+      steps:
+        - checkout
+        - altostra-orb/setup #Make sure you have the Environment Variable "ALTO_API_KEY" set in your project
+        - install:
+            name: Install node modules
+            command: |
+              npm install
+        - altostra-orb/deploy:
+            instance-name: "MyInstance"
+            env-name: "Development"
+
+  workflows:
+    use-my-orb:
+      jobs:
+        - build-and-push

@@ -1,14 +1,15 @@
 version: 2.1
 
 description: >
-  Sample orb description
-# What will your orb allow users to accomplish?
-# Descriptions should be short, simple, and informative.
+  Integrate Altostra projects into your CircleCI workflows.
+  Use Altostra to accelerate serverless applications development in a no-code environment.
+  To use this orb, sign up for a free account at https://altostra.com.
+  Learn more: https://docs.altostra.com/integrations/ci-cd/circleci-integration.html
 
 # This information will be displayed in the orb registry and is not mandatory.
 display:
-  home_url: "https://www.website.com/docs"
-  source_url: "https://www.github.com/EXAMPLE_ORG/EXAMPLE_PROJECT"
+  home_url: "https://www.altostra.com"
+  source_url: "https://github.com/altostra/altostra-orb"
 
 # If your orb requires other orbs, you can import them like this. Otherwise remove the "orbs" stanza.
 # orbs:

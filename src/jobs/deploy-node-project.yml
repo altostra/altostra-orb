@@ -1,0 +1,65 @@
+description: |
+  Build, test and deploy a basic NodeJS project.
+  This job runs `npm install`, `npm run build` and `npm run test`,
+  and on success, runs `npm ci --production` and deploys the current project to the requested instance.
+
+parameters:
+
+  instance-name:
+    type: string
+    description: "The instance this version will be deployed to"
+
+  env-name:
+    type: string
+    description: "The environment containing this instance"
+
+  image-name:
+    type: string
+    description: "Optional. Image name to use when pushing this version"
+    default: ""
+
+  node-version:
+    type: string
+    description: "Pick a specific circleci/node image variant: https://hub.docker.com/r/cimg/node/tags"
+    default: "12.19"
+
+docker:
+  - image: 'cimg/node:<< parameters.node-version >>'
+
+steps:
+
+  - checkout
+
+  - restore_cache:
+      keys:
+      - modules-cache-{{ checksum "package-lock.json" }}
+      - modules-cache
+
+  - setup
+
+  - run:
+      name: Install dependecies
+      command: |
+        npm ci
+        npm run build
+
+  - save_cache:
+      paths:
+        - node_modules
+      key: modules-cache-{{ checksum "package-lock.json" }}
+
+  - run:
+      name: Run Tests
+      command: |
+        npm run test
+
+  - run:
+      name: Clean for Production
+      command: |
+        npm ci --production
+
+  - deploy:
+      instance-name: << parameters.instance-name >>
+      env-name: << parameters.env-name >>
+      image-name: << parameters.image-name >>
+

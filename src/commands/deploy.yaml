@@ -1,0 +1,31 @@
+description:
+  Push and deploy the current project
+
+parameters:
+  instance-name:
+    type: string
+    description: "The instance name to deploy"
+  env-name:
+    type: string
+    description: "The environment to which to deploy"
+  image-name:
+    type: string
+    description: "Optional. The image name (i.e: 1.0.0, v2.4.1, alpha, dev, test, ...)"
+    default: ""
+
+steps:
+  - when:
+      condition: << parameters.image-name >>
+      steps:
+        - run:
+            name: "Deploying from image << parameters.image-name >> as instance << parameters.instance-name >> to environment  << parameters.env-name >>"
+            command: |
+              alto deploy "<< parameters.instance-name >>":"<< parameters.image-name >>" --env "<< parameters.env-name >>" --push --json
+  - unless:
+      condition: << parameters.image-name >>
+      steps:
+        - run:
+            name: "Deploying as instance << parameters.instance-name >> to environment  << parameters.env-name >>"
+            command: |
+              alto deploy "<< parameters.instance-name >>" --env "<< parameters.env-name >>" --push --json
+
