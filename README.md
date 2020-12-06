@@ -81,7 +81,7 @@ jobs:
           version: "v1.2.3-myVer"
 ```
 
-and then deploy it:
+and then deploy it: 
 
 ```yaml
       - altostra-orb/deploy-version:
