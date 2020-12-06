@@ -90,9 +90,9 @@ and then deploy it:
           env-name: "Production"
 ```
 
-### Non Node projects
+### Using Non-Node images
 If you're using an image that doesn't contain NPM installed (like python images), 
-use the `circleci/node` orb to install NPM:
+You'll need to manually install NPM to use the Altostra CLI. The easiest way is to use the `circleci/node` orb to install NPM:
 
 ```yaml
 version: 2.1
