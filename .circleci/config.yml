@@ -45,7 +45,7 @@ jobs:
           path: ~/altostra-orb_2
       - altostra-orb/setup
       - altostra-orb/deploy:
-          instance-name: "circleci1"
+          instance-name: "circleci3"
           env-name: "Daylong"
           image-name: "$CIRCLE_BUILD_NUM"
 

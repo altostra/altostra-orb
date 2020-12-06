@@ -12,7 +12,13 @@
 
 [![Altostra](https://circleci.com/gh/altostra/altostra-orb.svg?style=svg)](https://app.circleci.com/pipelines/github/altostra/altostra-orb)
 
-Easily integrate your Altostra deployments with your CircleCI
+Integrate Altostra projects into your CircleCI workflows.
+Use Altostra to accelerate serverless applications development in a no-code environment.
+
+To use this orb, sign up for a free account at [Altostra](https://altostra.com/). 
+
+Click to [learn more](https://docs.altostra.com/integrations/ci-cd/circleci-integration.html)
+
 
 ## Using
 
@@ -84,3 +90,35 @@ and then deploy it:
           env-name: "Production"
 ```
 
+### Using Non-Node images
+If you're using an image that doesn't contain NPM installed (like python images), 
+You'll need to manually install NPM to use the Altostra CLI. The easiest way is to use the `circleci/node` orb to install NPM:
+
+```yaml
+version: 2.1
+orbs:
+  altostra-orb: altostra/altostra-orb@x.y #enter latest version
+  node: circleci/node@4.1.0
+
+jobs:
+  build:
+    docker:
+      - image: circleci/python:latest
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - node/install #Installing node
+      # setup the Altostra CLI with your api-token
+      - altostra-orb/setup
+      - run:
+          name: NPM install
+          command: npm install
+
+      - altostra-orb/deploy:
+          instance-name: "myInstance"
+          env-name: "Production"
+```
+
+You can read more about using specific node versions and other settings at the `circleci/node` [documentation page](https://circleci.com/developer/orbs/orb/circleci/node)
