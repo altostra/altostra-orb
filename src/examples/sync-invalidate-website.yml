@@ -1,0 +1,33 @@
+description: >
+  Syncing and invalidating a static website project
+  Use the "setup" command to install and authenticate with your account.
+  Use the "sync" command to sync your new files to the s3 bucket
+  Use the "invalidate" command to invalidate the existing CDN
+usage:
+  version: 2.1
+
+  orbs:
+    altostra-orb: altostra/altostra-orb@x.y
+
+  jobs:
+    sync-and-invalidate:
+
+      docker:
+        - image: cimg/node:12.19
+
+      working_directory: ~/repo
+      steps:
+        - checkout
+        - altostra-orb/setup #Make sure you have the Environment Variable "ALTO_API_KEY" set in your project
+        - altostra-orb/sync:
+            instance-name: prod
+            all: true # sync all buckets
+            public: true # make files publicly accessible
+        - altostra-orb/invalidate:
+            instance-name: prod
+            all: true # invalidate all CDNs
+
+  workflows:
+    use-my-orb:
+      jobs:
+        - sync-and-invalidate
