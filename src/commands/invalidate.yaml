@@ -1,10 +1,10 @@
 description:
-  Clear CDN caches
+  Invalidate the CDN caches of the current project
 
 parameters:
   instance-name:
     type: string
-    description: "The instance name"
+    description: "The instance name to invalidate"
   all:
     type: boolean
     default: true

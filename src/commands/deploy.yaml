@@ -1,5 +1,5 @@
 description:
-  Push and deploy the current project
+  "Push and deploy the current project"
 
 parameters:
   instance-name:

@@ -1,10 +1,10 @@
 description:
-  Upload files to buckets
+  Synchronize files to buckets of the current project
 
 parameters:
   instance-name:
     type: string
-    description: "The instance name"
+    description: "The instance name to sync"
   all:
     type: boolean
     default: true
