@@ -11,11 +11,11 @@ parameters:
     description: "Invalidate all the CDNs in the instance"
   cdns:
     type: string
-    description: "Invalidate only the given CDNs by name"
+    description: "Invalidate only the given CDNs by name - spaces separated list"
     default: ""
   paths:
     type: string
-    description: "The paths to invalidate. Default to "/*" if not provided"
+    description: "The paths to invalidate. Default to /* if not provided - spaces separated list"
     default: "/*"
 
 steps:

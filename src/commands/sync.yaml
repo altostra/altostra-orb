@@ -11,7 +11,7 @@ parameters:
     description: "Sync all the buckets in the instance"
   buckets:
     type: string
-    description: "Sync only the given buckets by name"
+    description: "Sync only the given buckets by name - spaces separated list"
     default: ""
   public:
     type: boolean
