@@ -1,0 +1,35 @@
+description:
+  Synchronize files to buckets of the current project
+
+parameters:
+  instance-name:
+    type: string
+    description: "The instance name to sync"
+  all:
+    type: boolean
+    default: true
+    description: "Sync all the buckets in the instance"
+  buckets:
+    type: string
+    description: "Sync only the given buckets by name - spaces separated list"
+    default: ""
+  public:
+    type: boolean
+    description: "Set public access to files after syncing - private by default"
+    default: false
+
+steps:
+  - when:
+      condition: << parameters.all >>
+      steps:
+        - run:
+            name: "Syncing all buckets to << parameters.instance-name >>"
+            command: |
+              alto sync "<< parameters.instance-name >>" -a <<# parameters.public >> --public <</ parameters.public >> --json
+  - unless:
+      condition: << parameters.all >>
+      steps:
+        - run:
+            name: "Syncing << parameters.buckets >> buckets to << parameters.instance-name >>"
+            command: |
+              alto sync "<< parameters.instance-name >>" "<< parameters.buckets >>" <<# parameters.public >> --public <</ parameters.public >> --json

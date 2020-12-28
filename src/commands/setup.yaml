@@ -13,4 +13,3 @@ steps:
       command: |
         sudo npm i -g @altostra/cli
         alto api-key set ${<< parameters.api-token >>}
-

@@ -20,4 +20,3 @@ steps:
       name: Deploying from image << parameters.image-name >> as instance << parameters.instance-name >> to enviroment "<< parameters.env-name >>"
       command: |
         alto deploy "<< parameters.instance-name >>":"<< parameters.image-name >>" --env "<< parameters.env-name >>" --json
-

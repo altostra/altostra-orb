@@ -12,4 +12,3 @@ steps:
       name: Push the image
       command: |
         alto push << parameters.image-name >> --json
-

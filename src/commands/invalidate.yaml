@@ -1,0 +1,35 @@
+description:
+  Invalidate the CDN caches of the current project
+
+parameters:
+  instance-name:
+    type: string
+    description: "The instance name to invalidate"
+  all:
+    type: boolean
+    default: true
+    description: "Invalidate all the CDNs in the instance"
+  cdns:
+    type: string
+    description: "Invalidate only the given CDNs by name - spaces separated list"
+    default: ""
+  paths:
+    type: string
+    description: "The paths to invalidate. Default to all if not provided - spaces separated list"
+    default: "/*"
+
+steps:
+  - when:
+      condition: << parameters.all >>
+      steps:
+        - run:
+            name: "Invalidating all CDNs for << parameters.instance-name >>"
+            command: |
+              alto invalidate "<< parameters.instance-name >>" -a -p "<< parameters.paths >>" --json
+  - unless:
+      condition: << parameters.all >>
+      steps:
+        - run:
+            name: "Invalidating << parameters.cdns >> CDNs for << parameters.instance-name >>"
+            command: |
+              alto sync "<< parameters.instance-name >>" "<< parameters.cdns >>" -p "<< parameters.paths >>" --json
