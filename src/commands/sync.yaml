@@ -33,4 +33,3 @@ steps:
             name: "Syncing << parameters.buckets >> buckets to << parameters.instance-name >>"
             command: |
               alto sync "<< parameters.instance-name >>" "<< parameters.buckets >>" <<# parameters.public >> --public <</ parameters.public >> --json
-

@@ -15,7 +15,7 @@ parameters:
     default: ""
   paths:
     type: string
-    description: "The paths to invalidate. Default to /* if not provided - spaces separated list"
+    description: "The paths to invalidate. Default to all if not provided - spaces separated list"
     default: "/*"
 
 steps:
@@ -33,4 +33,3 @@ steps:
             name: "Invalidating << parameters.buckets >> CDNs at << parameters.instance-name >>"
             command: |
               alto sync "<< parameters.instance-name >>" "<< parameters.cdns >>" -p "<< parameters.paths >>" --json
-

@@ -28,4 +28,3 @@ steps:
             name: "Deploying as instance << parameters.instance-name >> to environment  << parameters.env-name >>"
             command: |
               alto deploy "<< parameters.instance-name >>" --env "<< parameters.env-name >>" --push --json
-
