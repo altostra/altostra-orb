@@ -32,8 +32,8 @@ steps:
 
   - restore_cache:
       keys:
-      - modules-cache-{{ checksum "package-lock.json" }}
-      - modules-cache
+        - modules-cache-{{ checksum "package-lock.json" }}
+        - modules-cache
 
   - setup
 
@@ -62,4 +62,3 @@ steps:
       instance-name: << parameters.instance-name >>
       env-name: << parameters.env-name >>
       image-name: << parameters.image-name >>
-
