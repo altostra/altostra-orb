@@ -27,9 +27,9 @@ steps:
             command: |
               alto invalidate "<< parameters.instance-name >>" -a -p "<< parameters.paths >>" --json
   - unless:
-      condition: << parameters.image-name >>
+      condition: << parameters.all >>
       steps:
         - run:
-            name: "Invalidating << parameters.buckets >> CDNs at << parameters.instance-name >>"
+            name: "Invalidating << parameters.cdns >> CDNs at << parameters.instance-name >>"
             command: |
               alto sync "<< parameters.instance-name >>" "<< parameters.cdns >>" -p "<< parameters.paths >>" --json

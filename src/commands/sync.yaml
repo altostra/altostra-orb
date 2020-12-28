@@ -27,7 +27,7 @@ steps:
             command: |
               alto sync "<< parameters.instance-name >>" -a <<# parameters.public >> --public <</ parameters.public >> --json
   - unless:
-      condition: << parameters.image-name >>
+      condition: << parameters.all >>
       steps:
         - run:
             name: "Syncing << parameters.buckets >> buckets to << parameters.instance-name >>"
