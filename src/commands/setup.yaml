@@ -11,5 +11,6 @@ steps:
   - run:
       name: Install Altostra CLI and set the API token
       command: |
-        sudo npm i -g @altostra/cli
+        sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
+        npm i -g @altostra/cli
         alto api-key set ${<< parameters.api-token >>}
